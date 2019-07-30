@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.yanxianyu.springcloud</groupId>
+  <artifactId>microservicecloud</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>micorservicecloud_api</module>
+    <module>microservicecloud_provider_dept_8001</module>
+      <module>microservicecloud_consumer_dept_80</module>
+      <module>microservicecloud_enreka_7001</module>
+    <module>microservicecloud_enreka_7002</module>
+    <module>microservicecloud_enreka_7003</module>
+      <module>microservicecloud_provider_dept_8002</module>
+      <module>microservicecloud_provider_dept_8003</module>
+      <module>microservicecloud_consumer_dept_feign</module>
+      <module>microservicecloud_provider_dept_hystrix_8001</module>
+      <module>microservicecloud_consumer_hystrix_dashboard</module>
+      <module>microservicecloud_zuul_gateway_9527</module>
+      <module>microservicecloud_zuul_gateway_9528</module>
+      <module>microservicecloud_config_3344</module>
+      <module>microservicecloud_config_client_3355</module>
+      <module>microservicecloud_config_eureka_client_7001</module>
+      <module>microservicecloud_config_dept_client_8001</module>
+  </modules>
+  <packaging>pom</packaging>
+  <name>Maven</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://maven.apache.org/</url>
+  <inceptionYear>2001</inceptionYear>
+
+  <distributionManagement>
+    <site>
+      <id>website</id>
+      <url>scp://webhost.company.com/www/website</url>
+    </site>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <junit.version>4.12</junit.version>
+    <log4j.version>1.2.17</log4j.version>
+    <druid.version>1.1.10</druid.version>
+    <spring-boot.version>1.5.19.RELEASE</spring-boot.version>
+    <spring-cloud.version>Dalston.SR1</spring-cloud.version>
+    <mysql-connector.version>5.1.47</mysql-connector.version>
+    <mybatis-starter.version>1.3.3</mybatis-starter.version>
+    <logback.version>1.2.3</logback.version>
+    <lombok.version>1.18.6</lombok.version>
+  </properties>
+  <dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-dependencies</artifactId>
+      <version>${spring-cloud.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-dependencies</artifactId>
+      <version>${spring-boot.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql-connector.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>${druid.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>${mybatis-starter.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  </dependencyManagement>
+
+
+  <build>
+    <!--finalName 父工程名称-->
+    <finalName>microservicecloud</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <!--过滤开启-->
+        <filtering>true</filtering>
+      </resource>
+
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <delimiters>
+            <delimit>$</delimit>
+          </delimiters>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+</project>
